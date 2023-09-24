@@ -42,5 +42,9 @@ RSpec.describe 'astronauts index' do
                 expect(@apollo15.title).to appear_before(@apollo14.title)
                 expect(@apollo14.title).to appear_before(@apollo13.title)
             end
+
+            it 'i see total time in space for each astronaut' do 
+                expect(page).to have_content ("Neil Armstrong Time in Space: 30")
+            end
         end
     end
