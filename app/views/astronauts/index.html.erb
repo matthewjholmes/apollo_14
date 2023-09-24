@@ -1,14 +1,18 @@
 <h1>Astronauts</h1>
 
 <% @astronauts.each do |astronaut| %>
+
   <%= link_to astronaut.name, astronauts_path(astronaut)%><br>
   <p>Age: <%= astronaut.age %></p>
   <p>Job: <%= astronaut.job %></p>
+
   <p><%= astronaut.name %> Missions</p>
   <% astronaut.alpha_missions.each do |mission| %>
     <%= mission.title %>
   <% end %>
+
   <p><%= astronaut.name %> Time in Space: <%= astronaut.time_in_space %></p>
+  
 <% end %>
 
 <h4>Average age: <%= @astronauts.average_age %></h4>

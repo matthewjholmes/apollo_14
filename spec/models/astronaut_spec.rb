@@ -12,7 +12,19 @@ describe Astronaut, type: :model do
     it { should have_many :missions}
   end
 
-  describe 'Methods' do
+  describe 'Class Methods' do
+    before do 
+      @neil = Astronaut.create!(name: "Neil Armstrong", age: 37, job: "Commander")
+      @astro2 = Astronaut.create!(name: "Astronaut 2", age: 33, job: "Janitor")
+      @astro3 = Astronaut.create!(name: "Astronaut 3", age: 28, job: "Breath Holder")
+    end
+
+    it '.average_age' do
+      expect(Astronaut.average_age).to eq(33)
+    end
+  end
+
+  describe 'Instance Methods' do
     before do 
       @neil = Astronaut.create!(name: "Neil Armstrong", age: 37, job: "Commander")
       @astro2 = Astronaut.create!(name: "Astronaut 2", age: 33, job: "Janitor")
@@ -21,10 +33,6 @@ describe Astronaut, type: :model do
       @mission_a = Mission.create!(title: "A", time_in_space: 5)
       @mission_b = Mission.create!(title: "B", time_in_space: 10)
       @mission_c = Mission.create!(title: "C", time_in_space: 15)
-    end
-
-    it '.average_age' do
-      expect(Astronaut.average_age).to eq(33)
     end
 
     it '#alpha_missions' do
@@ -36,7 +44,7 @@ describe Astronaut, type: :model do
     it '#time_in_space' do
       @neil.missions << [@mission_c, @mission_b, @mission_a]
       
-      expect(@neil.time_in_space).to eq (30)
+      expect(@neil.time_in_space).to eq(30)
     end
   end
 end
