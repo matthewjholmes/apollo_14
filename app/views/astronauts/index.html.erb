@@ -1,0 +1,7 @@
+<h1>Astronauts</h1>
+
+<% @astronauts.each do |astronaut| %>
+  <%= link_to astronaut.name, astronauts_path(astronaut)%><br>
+  <p>Age: <%= astronaut.age %></p>
+  <p>Job: <%= astronaut.job %></p>
+<% end %>
