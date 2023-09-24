@@ -19,8 +19,17 @@ describe Astronaut, type: :model do
       @astro3 = Astronaut.create!(name: "Astronaut 3", age: 28, job: "Breath Holder")
     end
 
-    it '#average_age' do
+    it '.average_age' do
       expect(Astronaut.average_age).to eq(33)
+    end
+
+    it '#alpha_missions' do
+      mission_a = Mission.create!(title: "A", time_in_space: 5)
+      mission_b = Mission.create!(title: "B", time_in_space: 5)
+      mission_c = Mission.create!(title: "C", time_in_space: 5)
+      @neil.missions << [mission_c, mission_b, mission_a]
+
+      expect(@neil.alpha_missions).to eq([mission_a, mission_b, mission_c])
     end
   end
 end

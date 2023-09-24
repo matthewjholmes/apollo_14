@@ -4,6 +4,10 @@
   <%= link_to astronaut.name, astronauts_path(astronaut)%><br>
   <p>Age: <%= astronaut.age %></p>
   <p>Job: <%= astronaut.job %></p>
+  <p><%= astronaut.name %> Missions</p>
+  <% astronaut.alpha_missions.each do |mission| %>
+    <%= mission.title %>
+  <% end %>
 <% end %>
 
 <h4>Average age: <%= @astronauts.average_age %></h4>

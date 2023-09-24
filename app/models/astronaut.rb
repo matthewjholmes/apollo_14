@@ -7,4 +7,7 @@ class Astronaut < ApplicationRecord
     average(:age).round(0)
   end
 
+  def alpha_missions
+    missions.order(title: :asc)
+  end
 end

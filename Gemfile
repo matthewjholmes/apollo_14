@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'orderly'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'pry'
