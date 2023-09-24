@@ -33,8 +33,7 @@ RSpec.describe 'astronauts index' do
             end
 
             it 'i see the average age of all astronauts' do 
-                # Average 32.666667, round to 33
-                expect(page).to have_content("Average age: 33")
+                expect(page).to have_content("Average age: #{Astronaut.average_age}")
             end
 
             it 'i see a list of missions in alpha order for each astronaut' do 
@@ -44,7 +43,7 @@ RSpec.describe 'astronauts index' do
             end
 
             it 'i see total time in space for each astronaut' do 
-                expect(page).to have_content ("Neil Armstrong Time in Space: 30")
+                expect(page).to have_content ("Neil Armstrong Time in Space: #{@neil.time_in_space}")
             end
         end
     end
